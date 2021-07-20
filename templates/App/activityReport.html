@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "App/base.html" %}
+{% block body_block %}
+<div class="container">
+    <h1>Activity Report</h1>
+    <hr>
+    <form method = 'POST' enctype="multipart/form-data">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class = "btn btn-primary" value="Submit">
+    </form>
+    <a  href="../static/report.csv" download> Download Report </a>
+    <h2>Activity Report Script:</h2>
+    <script src="https://gist.github.com/naroman2/f8d579dd1356a5aa5d6b2ddaa57cdae3.js" ></script>
+     </div>
+{% endblock %}
+
