@@ -7,7 +7,7 @@
 import pandas as pd
 
 
-def runActivityReport(cohort_list, actData, results):
+def runActivityReport(cohort_list, szn, actData, results):
     #############################################
     # Setting the Cohort Labels:                #
     #############################################
@@ -73,14 +73,35 @@ def runActivityReport(cohort_list, actData, results):
     for ind in results.index:
         results["% completed (Culture)"][ind] = 100 * round(results["# of Culture Activities completed"][ind] / results["Total # of Activities completed"][ind], 3)
 
+    #############################################
+    # LEVELS:                                   #
+    #############################################
+    # function to be used in attendance computation for levels
+    def att(val):
+        return val.lower() == ('yes' or 'excused')
+    # List of boolean conditions to check when computing levels
+    if szn == 'fall':
+        conditions = [(actData['service count'] >= 2), (actData['civ mil count'] >= 1), (actData['culture count'] >= 1),\
+                (actData['Retreat'].apply(lambda val: att(val))), (actData['MT KIckoff'].apply(lambda val: att(val)))]
+    else:
+        conditions = [(actData['service count'] >= 2), (actData['civ mil count'] >= 1), (actData['culture count'] >= 1),\
+                (actData['OL Spring'].apply(lambda val: att(val))),(actData['MT Summit'].apply(lambda val: att(val)))]
+
+    L1 = actData.loc[conditions[0] & conditions[1] & conditions[2] & conditions[3] & conditions[4]]
+    L2 = actData.loc[conditions[0] & conditions[1] & conditions[3] & conditions[4]]
+    L3 = actData.loc[conditions[0] & conditions[1] & conditions[2]]
+    L4 = actData.loc[conditions[1] & conditions[2] & conditions[3] & conditions[4]]
+    L5 = actData.loc[conditions[0] & conditions[2] & conditions[3] & conditions[4]]
+
     return results
 
 
 
-# activities = pd.read_csv('activities2.csv')
-# results_template = pd.read_csv('../static/ReportTemplate.csv')
-# c_list = ['All', '2', '3', '4', '5', 'T2', 'T3']
-# runActivityReport(c_list, activities, results_template)
+activities = pd.read_csv('activities2.csv')
+results_template = pd.read_csv('../static/ReportTemplate.csv')
+c_list = ['All', '2', '3', '4', '5', 'T2', 'T3']
+season = 'fall'
+runActivityReport(c_list, season, activities, results_template)
 
 
 

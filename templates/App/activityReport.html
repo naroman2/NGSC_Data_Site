@@ -4,6 +4,12 @@
 <div class="container">
     <h1>Activity Report</h1>
     <hr>
+    <form>
+    <input type="radio" id="fall" name="season" value="Fall">
+    <label for="fall">Fall</label><br>
+    <input type="radio" id="spring" name="season" value="Spring">
+    <label for="spring">Spring</label><br>
+    </form>
     <form method = 'POST' enctype="multipart/form-data">
         {{form.as_p}}
         {% csrf_token %}
