@@ -97,11 +97,11 @@ def runActivityReport(cohort_list, szn, actData, results):
 
 
 
-activities = pd.read_csv('activities2.csv')
-results_template = pd.read_csv('../static/ReportTemplate.csv')
-c_list = ['All', '2', '3', '4', '5', 'T2', 'T3']
-season = 'fall'
-runActivityReport(c_list, season, activities, results_template)
+# activities = pd.read_csv('activities2.csv')
+# results_template = pd.read_csv('../static/ReportTemplate.csv')
+# c_list = ['All', '2', '3', '4', '5', 'T2', 'T3']
+# season = 'fall'
+# runActivityReport(c_list, season, activities, results_template)
 
 
 
