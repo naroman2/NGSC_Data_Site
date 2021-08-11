@@ -89,7 +89,7 @@ def runActivityReport(cohort_list, szn, actData, results):
         return val.lower() == ('yes' or 'excused')
 
     # List of boolean conditions to check when computing levels
-    if szn == 'fall':
+    if szn == 1:    # fall
         conditions = [(actData['service count'] >= 2), (actData['civ mil count'] >= 1), (actData['culture count'] >= 1),
                       (actData['Retreat'].apply(lambda val: att(val))),
                       (actData['MT KIckoff'].apply(lambda val: att(val)))]

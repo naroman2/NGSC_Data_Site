@@ -29,10 +29,10 @@
             Tools
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">Internships Airtable Database</a></li>
             <li><a class="dropdown-item" href="{% url 'App:activityReport' %}">End of Semester Activity Report Analysis</a></li>
             <li><a class="dropdown-item" href="">Bi-weekly Mailchimp Activities Uploader</a></li>
-              <li><a class="dropdown-item" href="">Mailchimp Pulse Data Extractor</a></li>
+              <li><a class="dropdown-item" href="{% url 'App:pulseEmailStats' %}">Mailchimp Pulse Data Extractor</a></li>
+              <li><a class="dropdown-item" href="{% url 'App:internTool' %}">Internships Base Updater</a></li>
           </ul>
         </li>
       </ul>
