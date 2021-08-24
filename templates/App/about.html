@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 {% extends "App/base.html" %}
 {% block body_block %}
-    <h1>About Page</h1>
+      <div class="container">
+     <h1>About Me</h1>
+          <style>
+      .img-container {
+        text-align: center;
+      }
+    </style>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="imgAbt">
+                <img width="220" height="220" src="../../static/NicoRomano_Headshot.jpg"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p>This site was created by Nico Romano and exists to facilitate data related tasks for the Next Generation Service Corps.  Please visit the tools section as the other pages on the site in development.</p>
+        </div>
+    </div>
 {% endblock %}
